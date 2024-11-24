@@ -1,0 +1,7 @@
+pip install django==4.2   == instaleaza django
+django-admin startproject hollymovies . - creeaza proiect nou
+python manage.py startapp viewer - creeaza aplicatia 'viewer'
+python manage.py makemigrations - migrarea fisierelor modificate
+python manage.py migrate - migreaza propriuzis
+python manage.py createsuperuser - creeaza user de admin
+python -m pip install django==3.0.10 - instaleaza django 3.0.10
