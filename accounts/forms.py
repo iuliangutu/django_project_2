@@ -1,9 +1,10 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.db.models.expressions import result
 from django.db.transaction import atomic
-from django.forms import CharField, Textarea
+from django.forms import CharField, Textarea, ModelForm
+from django.http import request
 
-from accounts.models import Profile
+from accounts.models import Profile, AdminRequestMessage
 
 
 class SignUpForm(UserCreationForm):
@@ -28,3 +29,11 @@ class SignUpForm(UserCreationForm):
         if commit:
             profile.save()
         return result
+
+class AdminRequestMessageForm(ModelForm):
+    class Meta:
+        model = AdminRequestMessage
+        fields = ['message']
+        widgets = {
+            'message': Textarea(attrs={'placeholder': 'Write your message here...'}),
+        }
